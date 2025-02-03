@@ -13,11 +13,14 @@ You should have Android Studio on the host and guest, installed. For the host, y
 
 # Problem: How to launch apps on the emulator
 
-The first problem is how to run the apps. Android emulator will not work inside the VM, but you can SSH from the host to the guest, with a reverse port forwarding of 5037 which is the android ADB port. Do, from the host to the guest:
+The first problem is how to run the apps. Android emulator will not work inside the VM, but you can SSH from the host to the guest, with a reverse port forwarding of 5037 which is the android ADB port. Do, on the host:
 
 ```
 ssh -R localhost:5037:localhost:5037 user@192.168.64.3
 ```
+
+Where that IP is the IP of the VM (the guest).
+
 
 You might get some tcp errors like `setsockopt TCP_NODELAY: Invalid argument` but they are not a problem.
 
