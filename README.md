@@ -55,3 +55,18 @@ in the case of a linux guest (untested).
 
 on `studio.vmoptions` (on the guest) either in the Android Studio folder next to the studio.sh or by doing `Help -> Edit Custom VM Options` and then restart Android Studio.
 
+# Flutter Development
+
+Flutter requires some extra redirection for the VM service.
+
+On the host, do
+
+```
+ssh -R localhost:5037:localhost:5037 -R localhost:50300:localhost:50300 vm@192.168.64.8
+```
+
+And on Android Dtudio Flutter's configuration for flutter run add the following flags:
+
+```
+--host-vmservice-port=50300 --dds-port 50301
+```
